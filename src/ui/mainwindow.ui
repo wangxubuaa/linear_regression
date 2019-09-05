@@ -17,10 +17,10 @@
    <widget class="QWidget" name="model3D" native="true">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>190</y>
-      <width>120</width>
-      <height>80</height>
+      <x>60</x>
+      <y>120</y>
+      <width>411</width>
+      <height>271</height>
      </rect>
     </property>
    </widget>
@@ -38,7 +38,8 @@
     <property name="title">
      <string>file</string>
     </property>
-    <addaction name="openFile"/>
+    <addaction name="openSTLFile"/>
+    <addaction name="open2DImage"/>
    </widget>
    <widget class="QMenu" name="menuview">
     <property name="title">
@@ -49,9 +50,19 @@
    <addaction name="menuview"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="openFile">
+  <action name="openSTLFile">
    <property name="text">
-    <string>openfile</string>
+    <string>openSTLFile</string>
+   </property>
+  </action>
+  <action name="actionopen2DImage">
+   <property name="text">
+    <string>open2DImage</string>
+   </property>
+  </action>
+  <action name="open2DImage">
+   <property name="text">
+    <string>open2DImage</string>
    </property>
   </action>
  </widget>
