@@ -41,8 +41,19 @@
 #include <vtkProperty.h>
 #include <vtkProperty2D.h>
 #include <vtkMath.h>
-
 #include <vtkImageInterpolator.h>
+
+#include <vtkRendererCollection.h>
+
+
+
+#include <vtkChartXY.h>
+#include <vtkTable.h>
+#include <vtkContextView.h>
+#include <vtkContextScene.h>
+#include <vtkPlotPoints.h>
+#include <vtkDoubleArray.h>
+
 namespace Ui {
 class MainWindow;
 }
@@ -52,19 +63,44 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    enum ViewState
+    {
+        ThreeD_View,
+        TwoD_ImageView,
+        TwoD_GraphView
+    };
+
     explicit MainWindow(QWidget *parent = nullptr);
     virtual ~MainWindow();
     void initialize();
     void initUIInterface();
     void modelDisplay();
     void twoDImageShow();
+    void imageVectorShow();
+    void twoDVectorWrite2Image();
+    void stlData2ImageVector();
+
+
+    void imageEncryption();
+    void imageDecryption();
+
 
 
 private slots:
     void on_openSTLFile_triggered();
     void on_open2DImage_triggered();
 
+    void on_showSTL2TwoDImage_triggered();
+    void on_stlEncrption_triggered();
+    void on_stlDecrption_triggered();
+
+
+
+
 private:
+    int viewState_;
+    void renderWindowInitialize();
+
     Ui::MainWindow *ui;
     QVTKOpenGLWidget* main3DOpenGLWidget_;
     QVBoxLayout* vLayout_;
@@ -91,6 +127,28 @@ private:
     QString STLPath_;
     QString imgPath_;
     QString outPutPath_;
+
+    struct Point3D
+    {
+        double x;
+        double y;
+        double z;
+    };
+
+    struct Point2D
+    {
+        double x;
+        double y;
+    };
+
+    std::vector<Point3D> pointData_;
+    std::vector<Point2D> imagePixelVector_;
+
+    int dimension_[3];
+    double spacing_[3];
+    double bound_[6];
+
+
 
 
 
