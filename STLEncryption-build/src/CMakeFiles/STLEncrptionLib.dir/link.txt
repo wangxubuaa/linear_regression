@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libSTLEncrptionLib.a  CMakeFiles/STLEncrptionLib.dir/STLEncrptionLib_autogen/mocs_compilation.cpp.o CMakeFiles/STLEncrptionLib.dir/ui/mainwindow.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libSTLEncrptionLib.a
